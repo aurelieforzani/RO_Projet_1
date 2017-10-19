@@ -62,8 +62,8 @@ while (any(chemins(:,n) ~= Arrivee))
     n = n+1;
 end
 
-
-CheminVide = ones(1,n).*Arrivee;
+% Supprimer les lignes de chemins innexistant
+CheminVide = ones(1,n).*Arrivee; 
 res =[];
 for i = 1:size(chemins,1)
     if (any((chemins(i,:) ~= CheminVide) == 1 ))
