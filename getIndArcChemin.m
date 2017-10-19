@@ -13,9 +13,8 @@ function [indArcChemin] = getIndArcChemin(chemin, pointeurs, successeurs)
 %arcs composant le chemin.
 %
 %% DEBUT DE LA FONCTION
-    indArcChemin = zeros(size(chemin) -[0,1]);
-    size(chemin,2)
-    for i = 1: (size(chemin,2) -1 )
+    indArcChemin = zeros(size(chemin,2) - 1,1);
+    for i = 1: (size(chemin,2) - 1)
         indArcChemin(i) = getIndArc(chemin(i), chemin(i+1), pointeurs, successeurs)
     end
 end

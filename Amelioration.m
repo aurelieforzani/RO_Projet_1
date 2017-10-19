@@ -1,4 +1,4 @@
-function [ flots ] = Amelioration( puits, source , sommets, marques, pointeurs, successeurs, flots)
+function [ flots ] = Amelioration( puits, source , sommets, marques, pointeurs, successeurs, flots, capacite)
 %% Améliore le flot compatible courant avec le marquage spécifié
 %% EN ENTREE :
 % puits : sommet d'arrivée du graphe
@@ -24,17 +24,16 @@ while( t ~= source)
     % Recherche de l'indice de l'arc liant s et t
     % arc orienté positivement
     if (s > 0)
-        
         indArc = getIndArc(s, t, pointeurs, successeurs);
+        minFlot = min(minFlot, capacite(indArc) - flots(indArc));
     % arc orienté négativement
     else
-        
         indArc = getIndArc(t, -s, pointeurs, successeurs);
+        minFlot = min(minFlot, flots(indArc));
     end
     
     % calcul du nouveau flot maximal à ajouter
     if (s ~= 0)
-        minFlot = min(minFlot, abs(flots(indArc)));
     end
     t = abs(s);
 end
