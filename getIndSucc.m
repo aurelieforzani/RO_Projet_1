@@ -4,7 +4,7 @@ function[indice] = getIndSucc(Pointeur,Sommet)
 %% ENTREE
 % Pointeur : tableaux du nombre d'arcs sortant pour chaque sommet
 % Sommets : tableau des Sommets du graphe
-% Sommet : sommet dont on cherche les arcs sortant*
+% Sommet : sommet dont on cherche les arcs sortant
 
 %% SORTIE
 % indice : tableau 1*2 contenant l'indice du premier arc sortant et du
