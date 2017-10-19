@@ -1,5 +1,5 @@
-function[SommetsSuivants] = getSommetsSuivants(Pointeur,Successeurs,Sommets,Sommet)
-% retourne la liste des sommets ateignables directement par Sommet
+function[SommetsSuivants] = getSommetsSuivants(Pointeur,Successeurs,Sommet)
+% retourne la liste des sommets atteignables directement par Sommet
 
 %% EN ENTREE
 %  
@@ -10,7 +10,7 @@ function[SommetsSuivants] = getSommetsSuivants(Pointeur,Successeurs,Sommets,Somm
 %% DEBUT DU PROGRAMME
 SommetsSuivants = [];
 
-indSucc = getIndSucc(Pointeur,Sommets,Sommet);
+indSucc = getIndSucc(Pointeur,Sommet);
 
 i = indSucc(1);
 j = indSucc(2);

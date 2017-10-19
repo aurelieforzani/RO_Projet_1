@@ -1,4 +1,4 @@
-function[indice] = getIndSucc(Pointeur,Sommets,Sommet)
+function[indice] = getIndSucc(Pointeur,Sommet)
 % retourne les indices de début et de fin des arcs sortant de Sommet dans
 % Successeurs
 %% ENTREE
