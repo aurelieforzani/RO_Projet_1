@@ -15,11 +15,12 @@ function [ indArc] = getIndArc(indDepart, indArrivee, pointeurs, successeurs)
 %indArc : entier, indice dans flots, successeurs et capacités de l'arc que l'on recherche
 
 %% DEBUT DE LA FONCTION
-
-
-indArc = sum(pointeurs(1:(indDepart-1),1),1) + 1;
-
-while(successeurs(indArc,1) ~= indArrivee)
-    indArc = indArc + 1;
-
+    indArc = sum(pointeurs(1:(indDepart-1)));
+    trouve = false;
+    while(~trouve)
+        indArc = indArc + 1;
+        if (successeurs(indArc) == indArrivee)
+            trouve = true;
+        end
+    end
 end
