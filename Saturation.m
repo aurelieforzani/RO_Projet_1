@@ -7,7 +7,7 @@
 
 % Retourne Flots : le tableau des flots des arcs
 
-function [Flots] = Saturation(Sommets, Capacite, Successeurs, Pointeurs)
+function [Flots] = Saturation(Depart, Arrivee, Sommets, Capacite, Successeurs, Pointeurs)
 
 % On part d'un flot réalisable -> Le flot nul
 

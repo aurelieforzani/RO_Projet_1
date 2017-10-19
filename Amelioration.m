@@ -1,34 +1,38 @@
-function [ flots ] = Amelioration( puits, source , sommets, marques, pointeurs, successeurs)
+function [ flots ] = Amelioration( puits, source , sommets, marques, pointeurs, successeurs, flots)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
 
 t = puits;
 %% Trouver la quantité maximale à ajouter au flot
-minFlot = INF;
+minFlot = inf;
 while( t ~= source)
     s = marques(t);
-    if (marque(t) > 0)
-        indArc = getIndArc(s, t, pointeurs, successeurs, sommets);
-    elseif (marque(t) < 0)
-        indArc = getIndArc(t, -s, pointeurs, successeurs, sommets);
+    if (s > 0)
+        
+        indArc = getIndArc(s, t, pointeurs, successeurs);
+    else
+        
+        indArc = getIndArc(t, -s, pointeurs, successeurs);
     end
-    minFlot = min(minFlot, abs(flots(indArc));
+    if (s ~= 0)
+        minFlot = min(minFlot, abs(flots(indArc)));
+    end
     t = abs(s);
 end
 
+t = puits;
 while( t ~= source)
-    if (marque(Sommets(t)) > 0)
-    %if (marque(getIndSommet(t)) > 0)
+    if (marques(sommets(t)) > 0)
+        %if (marque(getIndSommet(t)) > 0)
         s = marques(t);
-        indArc = getIndArc(s, t, pointeurs, successeurs, sommets);
+        indArc = getIndArc(s, t, pointeurs, successeurs);
         flots(indArc) = flots(indArc) + minFlot;
-    else if (marque(t) < 0)
-            s = marques(t);
-            indArc = getIndArc(t, -s, pointeurs, successeurs, sommets);
-            flots(indArc) = flots(indArc) - minFlot;
-        end
-        t = s;
+    elseif (marques(t) < 0)
+        s = marques(t);
+        indArc = getIndArc(t, -s, pointeurs, successeurs);
+        flots(indArc) = flots(indArc) - minFlot;
     end
+    t = abs(s);
 end
 
 return
