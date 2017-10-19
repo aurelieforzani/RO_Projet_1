@@ -1,4 +1,4 @@
-function [ indArc] = getIndArc(indDepart, indArrivee, pointeurs, successeurs, sommets )
+function [ indArc] = getIndArc(indDepart, indArrivee, pointeurs, successeurs)
 %% EN ENTREE
 %indDepart : entier, indice dans sommets et dans pointeurs du sommet de depart de
 %l'arc
@@ -7,7 +7,6 @@ function [ indArc] = getIndArc(indDepart, indArrivee, pointeurs, successeurs, so
 %pointeurs : vecteur, contenant le nombre de sommets vers lesquels pointe
 %chaque sommets du graphe
 %successeurs : vecteur, contenant les successeurs de chaque sommets;
-%sommets : vecteur, contenant tous les sommets du graphe
 
 %% EN SORTIE
 %Retourne l'indice correspondant à l'arc entre le sommet d'indice
@@ -16,13 +15,12 @@ function [ indArc] = getIndArc(indDepart, indArrivee, pointeurs, successeurs, so
 %indArc : entier, indice dans flots, successeurs et capacités de l'arc que l'on recherche
 
 %% DEBUT DE LA FONCTION
-
-
-indArc = sum(pointeurs(1:(indDepart-1),1),1) + 1;
-
-while(successeurs(indArc,1) ~= indArrivee)
-    indArc = indArc + 1;
-
+    indArc = sum(pointeurs(1:(indDepart-1)));
+    trouve = false;
+    while(~trouve)
+        indArc = indArc + 1;
+        if (successeurs(indArc) == indArrivee)
+            trouve = true;
+        end
+    end
 end
-
-% !!!! sommets ne sert à rien

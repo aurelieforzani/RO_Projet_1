@@ -17,7 +17,8 @@ while( t ~= source)
 end
 
 while( t ~= source)
-    if (marque(getIndSommet(t)) > 0)
+    if (marque(Sommets(t)) > 0)
+    %if (marque(getIndSommet(t)) > 0)
         s = marques(t);
         indArc = getIndArc(s, t, pointeurs, successeurs, sommets);
         flots(indArc) = flots(indArc) + minFlot;
