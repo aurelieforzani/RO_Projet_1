@@ -1,4 +1,4 @@
-function [ flots ] = FFfLot(source, puits, sommets, capacite, successeurs, pointeurs)
+function [ flot ] = FFfLot(source, puits, sommets, capacite, successeurs, pointeurs)
 % Résoudre un problème de flot maximal avec l'algorithme de Ford Fulkerson
 %% EN ENTREE
 % poidsArcs : représente pour chaque arc, le poids de l'arc
@@ -19,7 +19,7 @@ flot = Saturation(source, puits, sommets, capacite, successeurs, pointeurs);
 marques = Marquage(flot, source, puits, sommets, capacite, successeurs, pointeurs);
 
 %% Phase d'amélioration
-flots = Amelioration( puits, source , sommets, marques, pointeurs, successeurs, flot);
+flot = Amelioration( puits, source , sommets, marques, pointeurs, successeurs, flot, capacite);
 
 return
 end

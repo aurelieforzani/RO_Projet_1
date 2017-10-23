@@ -21,7 +21,6 @@ Flots = zeros(size(Capacite));
 % d'arrivée depuis le point de départ
 listeCheminDepartArrivee = getCheminsDepartArrivee(Depart, Arrivee, Pointeurs, Successeurs);
 
-%% TO REMOVE
 %Pour tous les chemins, on regarde si on peux le surcharger de 1, si oui on
 %le surcharge de 1 et on recommence, sinon on passe au sommet suivant.
 %%
@@ -30,48 +29,33 @@ listeCheminDepartArrivee = getCheminsDepartArrivee(Depart, Arrivee, Pointeurs, S
 % directement. Puis on passe au chemin suivant
 
 for chemin = listeCheminDepartArrivee'
-chemin = getChemin(chemin, Arrivee);
-%     %% TO REMOVE
-%     %peuxSurcharger = true si on peux surcharger le chemin et false sinon
-peuxSurcharger = true;
-%     %%
-%     
-%     % la quantité de flot dont on va surcharger chaque chemin
-%     flotAajouter = 0;
-%     
-%     %% TO REMOVE
-%     %On positione la valeur de peuxSurcharger
-%     %Pour toutes les capacitées du chemin, on regarde si on peux monter le
-%     %flot de 1.
-%     %%
-%     
-%     %Liste des indices des arcs du chemin courant
-     IndArcsChemin = getIndArcChemin(chemin);
-%     for i = IndArcsChemin
-%         peuxSurcharger = peuxSurcharger && Flots(i) < Capacite(i);
-%         % On ne pourra ajouter que la différence minimum entre la capacité
-%         % maximale d'un arc et son flot maximal
-%         flotAajouter = min(flotAajouter, Capacite(i) - Flots(i));
-%     end
-%     
-%     for i = IndArcsChemin
-%         Flots(i) = Flots(i) + flotAajouter;
-%     end
-%     
-%     %% TO REMOVE
+    chemin = getChemin(chemin, Arrivee);
+    %     %peuxSurcharger = true si on peux surcharger le chemin et false sinon
+    peuxSurcharger = true;
+    
+    %     %On positione la valeur de peuxSurcharger
+    %     %Pour toutes les capacitées du chemin, on regarde si on peux monter le
+    %     %flot de 1.
+    %     %%
+    %
+    %     %Liste des indices des arcs du chemin courant
+    IndArcsChemin = getIndArcChemin(chemin', Pointeurs, Successeurs);
+    for i = IndArcsChemin'
+        peuxSurcharger = peuxSurcharger && Flots(i) < Capacite(i);
+    end
+    
     while (peuxSurcharger)
         
         %On surcharge le chemin 
-        for i=IndArcsChemin
+        for i=IndArcsChemin'
             Flots(i) = Flots(i) + 1;
         end
         
         %Positionnement de peuxSurcharger
-        for i=IndArcsChemin
+        for i=IndArcsChemin'
             peuxSurcharger = peuxSurcharger && Flots(i) < Capacite(i);
         end
     end 
-    %
 end
 
 

@@ -1,4 +1,4 @@
-function[res] = getCheminsDepartArrive(Depart,Arrivee,Pointeurs,Successeurs)
+function[res] = getCheminsDepartArrivee(Depart,Arrivee,Pointeurs,Successeurs)
 % retourne la liste de tous les chemins (recursif)
 % 
 %% EN ENTREE
@@ -42,8 +42,13 @@ while (any(chemins(:,n) ~= Arrivee))
                 chemins(i,:) = Arrivee;
                 chemins(i,n+1) = Arrivee;
             else
+                % Le premier sommet suivant est ajouté sur le chemin de la
+                % ligne courante
                 chemins(i,n+1) = SommetsUtilises(1);
                 m = size(SommetsUtilises,2);
+                % Pour les sommets suivants, si ils existent, on
+                % copie la ligne du chemin courrant, et on l'ajoute en fin
+                % de chemins avec le nouveau sommet
                 if (m > 1)
                     for k = 2:m
                         ligneChemin = chemins(i,:);
@@ -57,8 +62,8 @@ while (any(chemins(:,n) ~= Arrivee))
     n = n+1;
 end
 
-
-CheminVide = ones(1,n).*Arrivee;
+% Supprimer les lignes de chemins innexistant
+CheminVide = ones(1,n).*Arrivee; 
 res =[];
 for i = 1:size(chemins,1)
     if (any((chemins(i,:) ~= CheminVide) == 1 ))
