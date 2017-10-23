@@ -65,6 +65,7 @@ while ismember(Depart,NONMARQUES)
             for k = prsuc:prsuc+Pointeurs(i)-1
                 
                 % On récupère le sommet successeur
+
                 j = Successeur(k);
                 
                 % Si il est marqué alors 
