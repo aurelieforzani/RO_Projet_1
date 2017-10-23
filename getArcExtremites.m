@@ -21,7 +21,7 @@ i = 1;
 while i <= n & tmp > 0
     % alors on le fait
     tmp = tmp - pointeurs(i);
-    i ++;
+    i = i + 1;
 end
 
 % quand on ne peut plus, c'est qu'on a trouvé l'indice de l'arc précédent

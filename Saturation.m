@@ -12,7 +12,6 @@
 function [Flots] = Saturation(Depart, Arrivee, Sommets, Capacite, Successeurs, Pointeurs)
 
 % On part d'un flot réalisable -> Le flot nul
-
 Flots = zeros(size(Capacite));
 
 % On améliore le flot pour le rendre complet
@@ -23,22 +22,17 @@ listeCheminDepartArrivee = getCheminsDepartArrivee(Depart, Arrivee, Pointeurs, S
 
 %Pour tous les chemins, on regarde si on peux le surcharger de 1, si oui on
 %le surcharge de 1 et on recommence, sinon on passe au sommet suivant.
-%%
-
-% Pour tous les chemins, on le charge de flot d'un seul coup pour le saturer
-% directement. Puis on passe au chemin suivant
-
 for chemin = listeCheminDepartArrivee'
     chemin = getChemin(chemin, Arrivee);
     %     %peuxSurcharger = true si on peux surcharger le chemin et false sinon
     peuxSurcharger = true;
     
-    %     %On positione la valeur de peuxSurcharger
-    %     %Pour toutes les capacitées du chemin, on regarde si on peux monter le
-    %     %flot de 1.
-    %     %%
-    %
-    %     %Liste des indices des arcs du chemin courant
+    %On positione la valeur de peuxSurcharger
+    %Pour toutes les capacitées du chemin, on regarde si on peux monter le
+    %flot de 1.
+    %%
+    
+    %Liste des indices des arcs du chemin courant
     IndArcsChemin = getIndArcChemin(chemin', Pointeurs, Successeurs);
     for i = IndArcsChemin'
         peuxSurcharger = peuxSurcharger && Flots(i) < Capacite(i);

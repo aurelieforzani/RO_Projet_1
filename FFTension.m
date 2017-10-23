@@ -157,13 +157,12 @@ while sommet ~= Arrivee
 end
 
 CheminTensionMaximale = PLUSCOURTCHEMIN(1:nsom);
-Capacite
+
 ValeurTensionMaximale = 0;
-size(CheminTensionMaximale, 2)
+
 for i=1:size(CheminTensionMaximale, 2)-1
     indArc = getIndArc(CheminTensionMaximale(i), CheminTensionMaximale(i+1), Pointeurs, Successeur);
-    indArc
-    Capacite(indArc)
+    
     ValeurTensionMaximale = ValeurTensionMaximale + Capacite(indArc);
 end
 

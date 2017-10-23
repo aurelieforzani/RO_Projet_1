@@ -15,7 +15,7 @@ function [indArcChemin] = getIndArcChemin(chemin, pointeurs, successeurs)
 %% DEBUT DE LA FONCTION
     indArcChemin = zeros(size(chemin,2) - 1,1);
     for i = 1: (size(chemin,2) - 1)
-        indArcChemin(i) = getIndArc(chemin(i), chemin(i+1), pointeurs, successeurs)
+        indArcChemin(i) = getIndArc(chemin(i), chemin(i+1), pointeurs, successeurs);
     end
 end
 
