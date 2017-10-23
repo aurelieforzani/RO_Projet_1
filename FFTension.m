@@ -137,7 +137,7 @@ nsom = 1;
 while sommet ~= Arrivee
     
     % Pour chaque arc partant du sommet courant
-    for k = prsuc:prsuc+Pointeurs(i)-1
+    for k = prsuc:prsuc+Pointeurs(sommet)-1
         j = Successeur(k);
         
         % Si la tension courante est égale à la valeur de la capacité
