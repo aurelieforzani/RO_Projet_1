@@ -10,16 +10,23 @@ function [ flot ] = FFfLot(source, puits, sommets, capacite, successeurs, pointe
 % listeSommets : représente la liste des sommets avec leur nom
 
 %% EN SORTIE
-
+% flot : le flot maximal du graphe
 
 %% Phase de saturation
 flot = Saturation(source, puits, sommets, capacite, successeurs, pointeurs);
 
+
 %% Phase de marquage
 marques = Marquage(flot, source, puits, sommets, capacite, successeurs, pointeurs);
 
-%% Phase d'amélioration
-flot = Amelioration( puits, source , sommets, marques, pointeurs, successeurs, flot, capacite);
+while marques(puits) ~= 0 
+    %% Phase d'amélioration
+    flot = Amelioration(puits, source , sommets, marques, pointeurs, successeurs, flot, capacite);
+    
+    
+    %% Phase de marquage
+    marques = Marquage(flot, source, puits, sommets, capacite, successeurs, pointeurs);
+end
 
 return
 end

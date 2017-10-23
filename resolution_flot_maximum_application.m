@@ -40,10 +40,10 @@ capacites = [10, 20, 10, 10, ... % pour le sommet 1
              10 ...
              ]; % pour le sommet 10
            
-flotMaximum = FFflot(depart, arrivee, sommets, capacites, successeurs, pointeurs);
+flotMaximum = FFflot(depart, arrivee, sommets', capacites, successeurs, pointeurs);
 
 % Affichage du flot de chaque arc
-for arc = size(flotMaximum, 2)
+for arc = 1:size(flotMaximum, 2)
     [sommet_precedant, sommet_suivant] = getArcExtremites(arc, successeurs, pointeurs);
     disp("Flot sur l'arc " + sommet_precedant + " -> " + sommet_suivant + " = " + flotMaximum(arc));
 end

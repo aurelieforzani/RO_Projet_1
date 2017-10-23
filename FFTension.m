@@ -53,7 +53,7 @@ while ismember(Depart,NONMARQUES)
     % Vecteur cocyles initialement nul
     vcocycle = zeros(1,nombreArcs); 
     
-    % Pour chaque sommet marqué
+    % Pour chaque sommet non marqué
     for l=1:size(NONMARQUES,2)
         i = NONMARQUES(l);
         
@@ -158,13 +158,12 @@ while sommet ~= Arrivee
 end
 
 CheminTensionMaximale = PLUSCOURTCHEMIN(1:nsom);
-Capacite
+
 ValeurTensionMaximale = 0;
-size(CheminTensionMaximale, 2)
+
 for i=1:size(CheminTensionMaximale, 2)-1
     indArc = getIndArc(CheminTensionMaximale(i), CheminTensionMaximale(i+1), Pointeurs, Successeur);
-    indArc
-    Capacite(indArc)
+    
     ValeurTensionMaximale = ValeurTensionMaximale + Capacite(indArc);
 end
 

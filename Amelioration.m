@@ -42,7 +42,7 @@ end
 t = puits;
 while( t ~= source)
     
-    % arc orienté négativement
+    % arc orienté positivement
     if (marques(sommets(t)) > 0)
         s = marques(t);
         indArc = getIndArc(s, t, pointeurs, successeurs);

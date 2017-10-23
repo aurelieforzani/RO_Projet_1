@@ -37,24 +37,17 @@ capacites = [1, 2, Inf,... % pour le sommet 1
              ]; % pour le sommet 8
            
 [valeurChemin, chemin] = FFTension(depart, arrivee, successeurs, capacites, pointeurs, sommets);
-chemin;
-valeurChemin;
+
 
 % Affichage du chemin et de sa valeur
-disp("Le chemin a une longueur de " + valeurChemin);
-% str_chemin = "";
-% for s = 1:size(chemin, 1)
-%     if(s < size(chemin, 1))
-%         str_chemin = str_chemin + chemin(s) + " -> ";
-%     else
-%         str_chemin = str_chemin + chemin(s);
-%     end
-% end
-
-for x=chemin
-    disp(x)
+disp("Le chemin a une longueur de " + size(chemin, 2) + " et une tension de " + valeurChemin);
+str = "Voici le chemin " + chemin(1);
+size_chemin = size(chemin, 2);
+for x=chemin(1, 2:size_chemin)
+    str = str + " -> " + x;
 end
-% disp(str_chemin + "On est arrivee !");
+% On affiche enfin la chaîne
+disp(str);
 
 end
 
