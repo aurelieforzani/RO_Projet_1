@@ -58,18 +58,4 @@ for chemin = listeCheminDepartArrivee'
     end 
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
