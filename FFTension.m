@@ -53,7 +53,7 @@ while ismember(Depart,NONMARQUES)
     % Vecteur cocyles initialement nul
     vcocycle = zeros(1,nombreArcs); 
     
-    % Pour chaque sommet marqué
+    % Pour chaque sommet non marqué
     for l=1:size(NONMARQUES,2)
         i = NONMARQUES(l);
         
