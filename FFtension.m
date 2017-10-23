@@ -12,7 +12,7 @@
 % Vecteur du nombre de successeurs de chaque sommet : NSUC
 %
 % Vecteur des successeurs de chaque sommet : SUC
-%
+
 %% Initialisations
 NSUC = uint16([3 0 3 1 2 3 2 2]);
 n = size(NSUC,2);
