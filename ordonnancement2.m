@@ -15,7 +15,7 @@ for i = 1:size(Pointeurs,2)
 end
 
 cheminCritique = [Arrivee];
-valeurTensionCritique = T(Arrivee)
+valeurTensionCritique = T(Arrivee);
 sommet = Arrivee;
 while (sommet ~= Depart)
     sommetsPrecedents = getSommetAvants(Pointeurs',Successeur',sommet);
@@ -34,5 +34,13 @@ MatriceActivite = zeros(2,size(Pointeurs,2));
 MatriceActivite(1,:) = T;
 % Les activités appartenant au chemin critique doivent être lancé a leur
 % valeur dans T
-MatriceActivite(2,cheminCritique) = T(cheminCritique);
+MatriceActivite(2,cheminCritique) = T(cheminCritique)
+
+
+Parcours = [Depart:Arrivee];
+Parcours = setdiff(Parcours,cheminCritique);
+Parcours;
+for k = Parcours
+    MatriceActivite(2,k) = valeurTensionCritique - getTensionsCritiques(k, Arrivee, Successeur, Capacite, Pointeurs, Sommets);
+end
 
