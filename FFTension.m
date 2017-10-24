@@ -128,7 +128,7 @@ end
 sommet = Depart;
 
 % prsuc : prochain successeur
-prsuc = 1;
+prsuc = sum(Pointeurs(1:Depart-1)) + 1;
 
 % nsom : position du sommet suivant dans le tableau PLUSCOURTCHEMIN
 nsom = 1;
