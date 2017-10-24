@@ -1,3 +1,4 @@
+
 function [valeurTensionCritique] = getTensionsCritiques(Depart, Arrivee, Successeur, Capacite, Pointeurs, Sommets)
 
 CapaciteAux = max(Capacite)-Capacite;
@@ -10,3 +11,4 @@ for k = 1:size(CheminTensionMinimale,2)-1
 end
 return
 end
+

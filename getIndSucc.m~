@@ -3,7 +3,8 @@ function[indice] = getIndSucc(pointeur,sommet)
 % Successeurs
 %% ENTREE
 % pointeur : tableaux du nombre d'arcs sortant pour chaque sommet
-% sommet : sommet dont on cherche les arcs sortant
+% sommets : tableau des Sommets du graphe
+% Sommet : sommet dont on cherche les arcs sortant
 
 %% SORTIE
 % indice : tableau 1*2 contenant l'indice du premier arc sortant et du
@@ -12,9 +13,9 @@ function[indice] = getIndSucc(pointeur,sommet)
 %% Note : l'indice du sommet dans Sommets est aussi la valeur du Sommet
 
 indice(1)=1; % indice du premier arc partant de Sommet
-for i = 1:sommet-1
-   indice(1) = indice(1) + pointeur(i);
+for i = 1:Sommet-1
+   indice(1) = indice(1) + Pointeur(i);
 end
 %indice du dernier arc partant de Sommet
-indice(2) = indice(1) + pointeur(sommet) - 1;
+indice(2) = indice(1) + Pointeur(Sommet) - 1;
 return;
