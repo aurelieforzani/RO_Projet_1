@@ -1,3 +1,5 @@
+%% Graphe d'exemple et de test pour l'ordonnancement
+
 Depart = 1;
 Arrivee = 11;
 Successeur = [2,3,4,5,5,6,7,7,9,8,10,8,9,10,8,10,11,11,11];
