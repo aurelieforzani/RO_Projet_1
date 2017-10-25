@@ -47,6 +47,11 @@ for arc = 1:size(flotMaximum, 2)
     [sommet_precedant, sommet_suivant] = getArcExtremites(arc, successeurs, pointeurs);
     disp("Flot sur l'arc " + sommet_precedant + " -> " + sommet_suivant + " = " + flotMaximum(arc));
 end
+valeurFlotMaximal = 0;
+for i=1:pointeurs(1)
+    valeurFlotMaximal = valeurFlotMaximal + flotMaximum(i);
+end
+disp("Flot maximal : " + valeurFlotMaximal); 
 
 end
 
