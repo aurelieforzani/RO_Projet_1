@@ -49,6 +49,7 @@ while (sommet ~= Depart)
     cheminCritique = [sommet  cheminCritique];
 end
 
+%% Création de matriceActivite
 matriceActivite = zeros(2,size(Pointeurs,2));
 % Le temps minimum pour lancer une activité correspond a T
 matriceActivite(1,:) = T;
@@ -56,9 +57,14 @@ matriceActivite(1,:) = T;
 % valeur dans T
 matriceActivite(2,cheminCritique) = T(cheminCritique)
 
-
+% Création de Parcours, la liste des sommets n'appartenants pas au chemin
+% critique
 Parcours = [Depart:Arrivee];
 Parcours = setdiff(Parcours,cheminCritique);
+% On parcours ces sommets, et pour chacun, on calcule le temps maximum
+% auquel le lancer pour effectuer toutes les activités en un temps minimum.
+% Pour cela, on calcule la valeur du plus grand chemin de ce sommet à
+% l'arrivé, et on l'enlève à notre valeur de Tension critique.
 for k = Parcours
     matriceActivite(2,k) = valeurTensionCritique - getTensionsCritiques(k, Arrivee, Successeur, Capacite, Pointeurs, Sommets);
 end
