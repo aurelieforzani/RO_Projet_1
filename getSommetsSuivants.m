@@ -12,11 +12,9 @@ function[SommetsSuivants] = getSommetsSuivants(pointeur,successeurs,sommet)
 %% DEBUT DE LA FONCTION
 SommetsSuivants = [];
 
-%indices du premier et du dernier arc de Sommet
-indSucc = getIndSucc(pointeur,sommet);
-
-debutArc = indSucc(1);
-finArc = indSucc(2);
+%indices du premier et du dernier arc partant de Sommet
+debutArc = sum(pointeur(1:(sommet-1)))+1;
+finArc = debutArc + pointeur(sommet) - 1;
 
 ind = 1;
 %récupérer les Sommets suivants
