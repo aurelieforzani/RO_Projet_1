@@ -65,6 +65,7 @@ while ismember(Depart,NONMARQUES)
             for k = prsuc:prsuc+Pointeurs(i)-1
                 
                 % On récupère le sommet successeur
+
                 j = Successeur(k);
                 
                 % Si il est marqué alors 
@@ -127,7 +128,7 @@ end
 sommet = Depart;
 
 % prsuc : prochain successeur
-prsuc = 1;
+prsuc = sum(Pointeurs(1:Depart-1)) + 1;
 
 % nsom : position du sommet suivant dans le tableau PLUSCOURTCHEMIN
 nsom = 1;
@@ -136,7 +137,7 @@ nsom = 1;
 while sommet ~= Arrivee
     
     % Pour chaque arc partant du sommet courant
-    for k = prsuc:prsuc+Pointeurs(i)-1
+    for k = prsuc:prsuc+Pointeurs(sommet)-1
         j = Successeur(k);
         
         % Si la tension courante est égale à la valeur de la capacité
