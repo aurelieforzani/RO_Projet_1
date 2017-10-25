@@ -9,7 +9,7 @@ function[SommetsSuivants] = getSommetsSuivants(pointeur,successeurs,sommet)
 %% EN SORTIE
 %  x : vecteur des valeurs des variables maximisant la valeur du critère.
 %  F : valeur optimale du critere.
-%% DEBUT DU PROGRAMME
+%% DEBUT DE LA FONCTION
 SommetsSuivants = [];
 
 %indices du premier et du dernier arc de Sommet

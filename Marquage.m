@@ -12,7 +12,7 @@ function [marques] =  Marquage(flot, source, puit, sommets, capacite, successeur
 %% EN SORTIE
 % marques : la liste dse marquage de chaque sommets
 
-%% Iinitialisation ds marques, seul le sommet de départ est marqué
+%% Initialisation des marques, seul le sommet de départ est marqué
 marques = zeros(1, size(sommets,1));
 marques(source)=1;
 
@@ -42,7 +42,7 @@ while(condition)
                     end
                     
                 end
-                for (t = getSommetAvants(pointeurs, successeurs,s))
+                for (t = getSommetsAvant(pointeurs, successeurs,s))
                     
                     % Marquer le sommet t si l'arc a un flot non nul et si le
                     % sommet t n'est pas déjà marqué

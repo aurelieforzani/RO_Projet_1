@@ -6,7 +6,7 @@ function[indSommet] = getIndSommet(sommets,sommet)
 % sommet : nom du sommet dont on veut l'indice
 %% EN SORTIE
 %  indSommet : indice de Sommet dans sommets
-%% DEBUT DU PROGRAMME
+%% DEBUT DE LA FONCTION
 ind = 1; % indice de parcours initialisé à 1
 % Tant que on ne trouve pas Sommet dans sommets, on regarde l'élément
 % suivant jusqu'à tous les avoir parcourru.

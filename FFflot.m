@@ -4,7 +4,6 @@ function [ flot ] = FFfLot(source, puits, sommets, capacite, successeurs, pointe
 % poidsArcs : représente pour chaque arc, le poids de l'arc
 % sommetsArcs : représente pour cahque arcs, le sommet de départ et
 %   d'arrivée
-
 % sommetsMarques : représente pour chaque sommet, la manière dont il est
 %   marqué
 % listeSommets : représente la liste des sommets avec leur nom

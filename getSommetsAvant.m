@@ -1,6 +1,13 @@
-function [ sommets ] = getSommetAvants( pointeurs, successeurs,s )
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+function [ sommets ] = getSommetsAvant( pointeurs, successeurs,s )
+%% Renvoie les sommets prédecesseur du sommet s
+%% EN ENTREE :
+% pointeurs : liste du nombre d'arc sortant de chaque sommet
+% successeurs : liste des sommets successeurs de chaque sommet
+% s : sommet dont on cherche les predecesseurs
+%% EN SORTIE
+% sommets : liste des sommets prédecesseurs de s
+
+%% DEBUT DE LA FONCTION
 sommets = [];
 indices = [];
 for(i=1:size(successeurs))

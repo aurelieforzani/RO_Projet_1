@@ -1,4 +1,5 @@
 %% Algorithme de Ford-Fulkerson pour les tensions maximales
+% Résoudre un problème de tension maximale avec l'algorithme de Ford Fulkerson
 
 %% Entrées
 % Depart : le sommet de départ dans la liste des Sommets

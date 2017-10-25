@@ -1,5 +1,5 @@
 function[res] = getCheminsDepartArrivee(depart,arrivee,pointeurs,successeurs)
-% retourne la liste de tous les chemins (recursif)
+% retourne la liste de tous les chemins
 % 
 %% EN ENTREE
 % depart : nom du sommet de départ
@@ -8,7 +8,7 @@ function[res] = getCheminsDepartArrivee(depart,arrivee,pointeurs,successeurs)
 % successeurs : Liste des successeurs
 %% EN SORTIE
 %  chemins : liste des chemins
-%% DEBUT DU PROGRAMME
+%% DEBUT DE LA FONCTION
 
 chemins = [depart];
 n = 1; % n est la taille courante de chemins

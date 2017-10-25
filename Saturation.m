@@ -1,29 +1,29 @@
 %%Fonction qui permet de réaliser la saturation du graphe
 
-% Depart : le sommet de départ dans la liste des Sommets
-% Arrivee: le sommet d'arrivée dans la liste des Sommets
-% Sommets : le tableau des sommets du graphe
-% Capacite : le tableau des capacitées des arcs
-% Successeurs : Le tableaux des successeurs des sommets
-% Pointeurs : la liste des pointeurs d'arcs
+% depart : le sommet de départ dans la liste des sommets
+% arrivee: le sommet d'arrivée dans la liste des sommets
+% sommets : le tableau des sommets du graphe
+% capacite : le tableau des capacitées des arcs
+% successeurs : Le tableaux des successeurs des sommets
+% pointeurs : la liste des pointeurs d'arcs
 
 % Retourne Flots : le tableau des flots des arcs
 
-function [Flots] = Saturation(Depart, Arrivee, Sommets, Capacite, Successeurs, Pointeurs)
+function [Flots] = Saturation(depart, arrivee, sommets, capacite, successeurs, pointeurs)
 
 % On part d'un flot réalisable -> Le flot nul
-Flots = zeros(size(Capacite));
+Flots = zeros(size(capacite));
 
 % On améliore le flot pour le rendre complet
 
 % On récupère la liste des chemins qui permettent d'atteindre le point
 % d'arrivée depuis le point de départ
-listeCheminDepartArrivee = getCheminsDepartArrivee(Depart, Arrivee, Pointeurs, Successeurs);
+listeCheminDepartArrivee = getCheminsDepartArrivee(depart, arrivee, pointeurs, successeurs);
 
 %Pour tous les chemins, on regarde si on peux le surcharger de 1, si oui on
 %le surcharge de 1 et on recommence, sinon on passe au sommet suivant.
 for chemin = listeCheminDepartArrivee'
-    chemin = getChemin(chemin, Arrivee);
+    chemin = getChemin(chemin, arrivee);
     %     %peuxSurcharger = true si on peux surcharger le chemin et false sinon
     peuxSurcharger = true;
     
@@ -33,9 +33,9 @@ for chemin = listeCheminDepartArrivee'
     %%
     
     %Liste des indices des arcs du chemin courant
-    IndArcsChemin = getIndArcChemin(chemin', Pointeurs, Successeurs);
+    IndArcsChemin = getIndArcChemin(chemin', pointeurs, successeurs);
     for i = IndArcsChemin'
-        peuxSurcharger = peuxSurcharger && Flots(i) < Capacite(i);
+        peuxSurcharger = peuxSurcharger && Flots(i) < capacite(i);
     end
     
     while (peuxSurcharger)
@@ -47,7 +47,7 @@ for chemin = listeCheminDepartArrivee'
         
         %Positionnement de peuxSurcharger
         for i=IndArcsChemin'
-            peuxSurcharger = peuxSurcharger && Flots(i) < Capacite(i);
+            peuxSurcharger = peuxSurcharger && Flots(i) < capacite(i);
         end
     end 
 end

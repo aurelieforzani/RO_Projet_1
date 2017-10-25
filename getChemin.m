@@ -6,6 +6,8 @@ function[chemin] = getChemin(ligne,arrivee)
 
 %% EN SORTIE 
 % chemin : chemin de la bonne forme jusqu'à arrivee
+
+%% DEBUT DE LA FONCTION
     ind = 1;
     %récupérer l'indice d'arrivee
     while (ligne(ind) ~= arrivee)

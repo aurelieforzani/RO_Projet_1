@@ -1,6 +1,6 @@
 % Résolution du problème d'ordonnancement
 % Comme nous n'avions pas de graphe à résoudre, nous avons créé notre
-% propre graphe
+% propre graphe (schéma sur le rapport)
 
 function [] = resolution_ordonnancement_application()
 

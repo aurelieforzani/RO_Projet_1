@@ -1,4 +1,4 @@
-%% Graphe d'exemple et de test pour l'ordonnancement
+%% Autre graphe d'exemple et de test pour l'ordonnancement (non implanté)
 
 Depart = 1;
 Arrivee = 8;

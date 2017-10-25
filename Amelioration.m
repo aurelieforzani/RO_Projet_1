@@ -8,6 +8,7 @@ function [ flots ] = Amelioration( puits, source , sommets, marques, pointeurs, 
 % pointeurs : tableau du nombre d'arcs sortant de chaque sommet
 % successeurs : tableau des sommets pointés par des arcs
 % flots : flot associé à chaque arc
+% capacite : capacité associée à chaque arc
 
 %% EN SORTIE 
 % flots : flots améliorés
