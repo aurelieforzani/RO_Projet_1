@@ -22,7 +22,8 @@ while( t ~= source)
     % les reliant
     s = marques(t);
     
-    % Recherche de l'indice de l'arc liant s et t
+    % Recherche de l'indice de l'arc liant s et t et de la meilleur
+    % modification du flux
     % arc orienté positivement
     if (s > 0)
         indArc = getIndArc(s, t, pointeurs, successeurs);
@@ -33,9 +34,6 @@ while( t ~= source)
         minFlot = min(minFlot, flots(indArc));
     end
     
-    % calcul du nouveau flot maximal à ajouter
-    if (s ~= 0)
-    end
     t = abs(s);
 end
 
@@ -44,7 +42,7 @@ t = puits;
 while( t ~= source)
     
     % arc orienté positivement
-    if (marques(sommets(t)) > 0)
+    if (marques(t) > 0)
         s = marques(t);
         indArc = getIndArc(s, t, pointeurs, successeurs);
         flots(indArc) = flots(indArc) + minFlot;

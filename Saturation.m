@@ -24,28 +24,21 @@ listeCheminDepartArrivee = getCheminsDepartArrivee(depart, arrivee, pointeurs, s
 %le surcharge de 1 et on recommence, sinon on passe au sommet suivant.
 for chemin = listeCheminDepartArrivee'
     chemin = getChemin(chemin, arrivee);
-    %     %peuxSurcharger = true si on peux surcharger le chemin et false sinon
-    
-    %On positione la valeur de peuxSurcharger
-    %Pour toutes les capacitées du chemin, on regarde si on peux monter le
-    %flot de 1.
-    %%
     
     %Liste des indices des arcs du chemin courant
-
     IndArcsChemin = getIndArcChemin(chemin', pointeurs, successeurs);
+    minFlot = Inf;
     
-        minFlot = Inf;
-        
-        %On surcharge le chemin 
-        for i=IndArcsChemin'
-            minFlot = min(minFlot, capacite(i) - Flots(i));
-        end
-        
-        for i=IndArcsChemin'
-            Flots(i) = Flots(i) + minFlot;
-        end
-        
+    % On cherche la surcharge max à ajouter au flot
+    for i=IndArcsChemin'
+        minFlot = min(minFlot, capacite(i) - Flots(i));
+    end
+    
+    %On surcharge le chemin
+    for i=IndArcsChemin'
+        Flots(i) = Flots(i) + minFlot;
+    end
+    
 end
 
 end
